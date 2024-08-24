@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Gestión de Vuelos</title>
+    </head>
+    <body>
+        <h1>Compañía Argentina</h1>
+        <h2>Gestión de Vuelos</h2>
+        <fieldset>
+            <legend>Menú</legend>
+            <nav>
+                <a href="#">Registrar usuario</a>
+                <a href="#">Consultar vuelos disponibles/reservar</a>
+                <a href="#">Ver reservas realizadas</a>
+                <a href="#">Eliminar reservas realizadas</a>
+            </nav>
+        </fieldset>
+        <section>
+            <h4>Consultar Vuelos Disponibles</h4>
+            <form action="pagina2.html" method="get">
+                <fieldset>
+                    <legend>Vuelo</legend>
+                    <label for="origen">Selección de Origen</label>
+                    <select name="origen" id="origen">
+                        <option>Córdoba</option>
+                        <option>Mendoza</option>
+                        <option>Tucumán</option>
+                    </select><br><br>
+                    <label for="destino">Selección de Destino</label>
+                    <select name="destino" id="destino">
+                        <option>Córdoba</option>
+                        <option>Mendoza</option>
+                        <option>Tucumán</option>
+                    </select><br><br>
+                    <label for="fechaVuelo">Fecha de vuelo</label>
+                    <input type="date" name="fechaVuelo" id="fechaVuelo"><br><br>
+                    <input type="submit" value="Buscar">
+                    <input type="reset" value="Cancelar">
+                </fieldset><br>
+            </form>
+        </section>
+        <footer>Sitio Oficial de Compañía Argentina-2024</footer>
+    </body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Registro de Reserva</title>
+    </head>
+    <body>
+        <section>
+            <h1>Registro de Reserva</h1>
+            <form action="pagina1.html" method="get">
+                <fieldset>
+                    <legend>Vuelo</legend>
+                    <label for="origen">Selección de Origen</label>
+                    <select name="origen" id="origen" disabled>
+                        <option>Córdoba</option>
+                        <option>Mendoza</option>
+                        <option>Tucumán</option>
+                    </select><br><br>
+                    <label for="destino">Selección de Destino</label>
+                    <select name="destino" id="destino" disabled>
+                        <option>Córdoba</option>
+                        <option>Mendoza</option>
+                        <option>Tucumán</option>
+                    </select><br><br>
+                    <label for="fechaVuelo">Fecha de vuelo</label>
+                    <input type="date" name="fechaVuelo" id="fechaVuelo" disabled><br><br>
+                    <label for="clase">Selección de Clase</label>
+                    <select name="clase" id="clase">
+                        <option>Económico</option>
+                        <option>Ejecutiva</option>
+                    </select><br><br>
+                    <label for="cantidadPasajes">Cantidad de Pasajes</label>
+                    <input type="number" name="cantidadPasajes" id="cantidadPasajes" min="1" max="50" required><br><br>
+                    <label for="ubicacion">Selección de Ubicación</label>
+                    <select name="ubicacion" id="ubicacion">
+                        <option>Ventanilla</option>
+                        <option>Centro</option>
+                        <option>Pasillo</option>
+                    </select><br><br>
+                    <label for="nroSilla">Selección de Nro de Silla</label>
+                    <input type="number" name="nroSilla" id="nroSilla" min="1" max="50"><br><br>
+                    <label for="apellidoNombre">Apellido y Nombre</label>
+                    <input type="text" maxlength="100" name="apellidoNombre" id="apellidoNombre" required><br><br>
+                    <label for="dni">DNI</label>
+                    <input type="number" min="8" required name="dni" id="dni"><br><br>
+                    <label for="fNacimiento">Fecha de Nacimiento</label>
+                    <input type="date" name="fNacimiento" id="fNacimiento"><br><br>
+                    <p>Sexo: 
+                        <label for="fem">F</label>
+                        <input type="radio" name="sexo" id="fem" value="F">
+                        <label for="masc">M</label>
+                        <input type="radio" name="sexo" id="masc"  value="M"><br><br>
+                    </p>
+                    <input type="submit" value="Aceptar">
+                    <input type="reset" value="Cancelar">
+                </fieldset><br>
+            </form>
+        </section>
+        <footer>Oficial de Compañía Argentina-2024</footer>
+    </body>
+</html>
