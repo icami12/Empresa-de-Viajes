@@ -1,0 +1,38 @@
+.position-relative {
+    position: relative;
+}
+.position-absolute {
+    position: absolute;
+    top: 12%; /* Puedes ajustar esta propiedad según donde quieras que aparezca el botón */
+    left: 0%;
+    transform: translate(-50%, -50%); /* Centra el botón horizontal y verticalmente */
+}
+.img-fluid {
+    width: 100%;
+    height: max-content;
+    min-height: 300px;
+}
+#slogan{
+    position: absolute;
+    top: 5%; /* Puedes ajustar esta propiedad según donde quieras que aparezca el botón */
+    left: 0%;
+    transform: translate(-50%, -50%);
+    font-style: italic;
+}
+.pantalla-completa {
+    background-color: #e0f7fa;
+    min-height: 100vh; /* Asegura que el contenedor ocupe al menos el 100% de la altura de la pantalla */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Asegura que el contenido esté distribuido correctamente */
+}
+.container {
+    flex: 1;
+}
+footer {
+    background-color: #004d73;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: auto;
+}

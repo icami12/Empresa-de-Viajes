@@ -1,0 +1,58 @@
+body {
+    background-color: #e0f7fa;
+    color: #333333;
+}
+
+h1 {
+    color: #007bb5;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+fieldset {
+    border: 2px solid #80deea;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+legend {
+    color: #004d73;
+    font-weight: bold;
+}
+
+label {
+    font-weight: bold;
+}
+
+.form-control, .form-select {
+    margin-bottom: 15px;
+}
+
+.btn-primary {
+    background-color: #004d73;
+    border-color: #004d73;
+}
+
+.btn-primary:hover {
+    background-color: #007bb5;
+    border-color: #007bb5;
+}
+
+.btn-secondary {
+    background-color: #80deea;
+    border-color: #80deea;
+    color: #004d73;
+}
+
+.btn-secondary:hover {
+    background-color: #b3e5fc;
+    border-color: #80deea;
+}
+
+footer {
+    background-color: #004d73;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
+}
