@@ -3,27 +3,46 @@ body {
     color: #333333;
 }
 
-h1, h2 {
+h1, h2, h3{
     color: #007bb5;
 }
 
 fieldset {
+    border-radius: 15px;
     border: 2px solid #80deea;
-    border-radius: 8px;
 }
 
 legend {
     color: #004d73;
     font-weight: bold;
 }
+.nav{
+    display: flex;
+}
 
+.nav-items{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
 .nav-link {
     color: #004d73;
 }
 
+.nav-items li{
+    float: left;
+    padding:15px;
+    list-style-type: none;
+}
+
 .nav-link:hover {
-    color: #007bb5;
+    color:beige;
     text-decoration: underline;
+    background-color: #004d73;
+    border-radius: 5px;
+    border-left: 8px solid rgb(165, 57, 57);
 }
 
 .btn-primary {
