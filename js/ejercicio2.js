@@ -68,20 +68,31 @@ document.addEventListener("DOMContentLoaded", function() {
         const inputCantPasajes = document.getElementById('cantidadPasajes');
         const cantDePasajes = parseInt(inputCantPasajes.value);
         const selectClase = parseInt(document.getElementById('clase').value);
+        const selectUbicacion = parseInt(document.getElementById('ubicacion').value);
 
-        if (selectClase === 2) {
-            if (cantDePasajes > 0 && cantDePasajes < 9) {
-                abrirModalDeRegistro(cantDePasajes);
-            } else {
-                alert('La cantidad de pasajeros debe estar entre 1 y 8 para Clase Ejecutiva');
+        if(selectUbicacion>0 && selectUbicacion<4)
+        {
+            if(selectClase === 2)
+            {
+                if (cantDePasajes > 0 && cantDePasajes < 9) {
+                    abrirModalDeRegistro(cantDePasajes);
+                } else {
+                    alert('La cantidad de pasajeros debe estar entre 1 y 8 para Clase Ejecutiva');
+                }
             }
-        } else {
-            if (cantDePasajes > 8 && cantDePasajes < 51) {
-                abrirModalDeRegistro(cantDePasajes);
-            } else {
-                alert('La cantidad de pasajeros debe estar entre 9 y 50 para Clase Económica');
+            else if(selectClase === 1){
+                if (cantDePasajes > 8 && cantDePasajes < 51) {
+                    abrirModalDeRegistro(cantDePasajes);
+                } else {
+                    alert('La cantidad de pasajeros debe estar entre 9 y 50 para Clase Económica');
+                }
             }
+            else{
+                alert('Completar campo clase primero.');
+            }  
         }
+        else
+            alert('Completar campo ubicacion primero.');
     });
 
     function abrirModalDeRegistro(cantidad) {
@@ -122,35 +133,28 @@ document.addEventListener("DOMContentLoaded", function() {
         modal.show();
     }
 
+    const reservas = [];
+
     function crearListaDeReservas() {
         const cantPasajes = parseInt(document.getElementById('cantidadPasajes').value);
-        const origen = localStorage.getItem('origen');
-        const destino = localStorage.getItem('destino');
-        let org, dest;
-        if(origen == 1 ){
-            org = "Córdoba";
-        }
-        if(origen == 2){
-            org = "Mendoza";
-        }
-        if (origen == 3) {
-            org = "Tucumán";
-        }
-        if(destino == 1 ){
-            dest = "Córdoba";
-        }
-        if(destino == 2){
-            dest = "Mendoza";
-        }
-        if (destino == 3) {
-            dest = "Tucumán";
-        }
-        const vuelo = {
-            origen: org,
-            destino: dest,
-            fecha: new Date(document.getElementById('fechaVuelo').value),
+        const origenId = parseInt(localStorage.getItem('origen'));
+        const destinoId = parseInt(localStorage.getItem('destino'));
+        const fechaVuelo = new Date(localStorage.getItem('fecha_vuelo'));
+
+        const provinciasMap = {
+            1: "Córdoba",
+            2: "Mendoza",
+            3: "Tucumán"
         };
-        const reservas = [];
+
+        const orig = provinciasMap[origenId];
+        const destn = provinciasMap[destinoId];
+
+        const vuelo = {
+            origen: orig,
+            destino: destn,
+            fecha: fechaVuelo
+        };
 
         for (let i = 1; i <= cantPasajes; i++) {
             const reserva = {
@@ -159,6 +163,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 vuelo: vuelo,
                 clase: document.getElementById('clase').options[document.getElementById('clase').selectedIndex].text,
                 asiento: document.getElementById(`${i}nroSilla`).value,
+                ubicacion: document.getElementById('ubicacion').options[document.getElementById('ubicacion').selectedIndex].text,
             };
             reservas.push(reserva);
         }
@@ -190,6 +195,14 @@ document.addEventListener("DOMContentLoaded", function() {
             row.insertCell(4).textContent = reserva.vuelo.fecha.toLocaleDateString();
             row.insertCell(5).textContent = reserva.clase;
             row.insertCell(6).textContent = reserva.asiento;
+            row.insertCell(7).textContent = reserva.ubicacion;
+
+            const borrarCelda = row.insertCell(8);
+            borrarCelda.innerHTML = `<button class="btn btn-danger btn-sm borrar-btn">Eliminar</button>`;
+        });
+
+        document.querySelectorAll('.borrar-btn').forEach((boton,index)=>{
+            boton.addEventListener('click', ()=> eliminarReserva(index,reservas));
         });
     }
 
@@ -201,4 +214,9 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
     abrirModalReservas();
+
+    function eliminarReserva(index, reservas) {
+        reservas.splice(index, 1);
+        mostrarReservas(reservas);
+    }
 });

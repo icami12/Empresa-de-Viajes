@@ -7,6 +7,9 @@ h1, h2, h3{
     color: #007bb5;
 }
 
+.contForm{
+    margin-top: 70px;
+}
 fieldset {
     border-radius: 15px;
     border: 2px solid #80deea;
